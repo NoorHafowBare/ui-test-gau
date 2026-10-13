@@ -1,0 +1,202 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Brand Tokens */
+  --primary: #4f7a16;
+  --primary-foreground: #ffffff;
+  --primary-hover: #436813;
+  --primary-active: #37540f;
+
+  /* Accent Gold (Accent only: icons, indicator lines, badges; never large fill) */
+  --accent: #f4ecdb;
+  --accent-foreground: #1c2419;
+  --accent-gold: #e3b23c;
+  --accent-gold-text: #8c6205; /* Darker gold for accessible text/icons on light bg */
+
+  /* Neutral Surface & Typography Tokens */
+  --background: #f5f6f4;
+  --foreground: #1c2419;
+  --card: #ffffff;
+  --card-foreground: #1c2419;
+  --popover: #ffffff;
+  --popover-foreground: #1c2419;
+  --secondary: #edf1ea;
+  --secondary-foreground: #2d3b20;
+  --muted: #edf1ea;
+  --muted-foreground: #546152; /* Contrast > 4.5:1 on white and background */
+  --border: #dfe4dc;
+  --input: #dfe4dc;
+  --ring: #4f7a16;
+
+  /* Status Tokens */
+  --success: #16803d;
+  --success-foreground: #ffffff;
+  --warning: #b45309;
+  --warning-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --info: #1d4ed8;
+  --info-foreground: #ffffff;
+
+  /* Sidebar Tokens (Deep green derived from primary) */
+  --sidebar: #1a2c0c;
+  --sidebar-foreground: #ecf2e6;
+  --sidebar-primary: #e3b23c;
+  --sidebar-primary-foreground: #182c0b;
+  --sidebar-accent: #274113;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #233a10;
+  --sidebar-ring: #e3b23c;
+
+  /* Auth Brand Panel subtle tonal gradient */
+  --auth-brand-gradient: linear-gradient(165deg, #1d330c 0%, #17290a 50%, #101c07 100%);
+
+  /* Radii: cards rounded-xl, buttons/inputs rounded-lg */
+  --radius: 0.5rem;
+  --radius-xl: 0.75rem;
+}
+
+.dark {
+  /* Brand Tokens (Dark Mode) */
+  --primary: #6ba320;
+  --primary-foreground: #0e1808;
+  --primary-hover: #7cb828;
+  --primary-active: #5c8f1a;
+
+  /* Accent Gold */
+  --accent: #242c1e;
+  --accent-foreground: #f0f4ee;
+  --accent-gold: #e3b23c;
+  --accent-gold-text: #f5c452;
+
+  /* Neutral Surface & Typography Tokens */
+  --background: #111610;
+  --foreground: #f0f4ee;
+  --card: #182017;
+  --card-foreground: #f0f4ee;
+  --popover: #182017;
+  --popover-foreground: #f0f4ee;
+  --secondary: #212c1e;
+  --secondary-foreground: #f0f4ee;
+  --muted: #1e281c;
+  --muted-foreground: #9ca998;
+  --border: #283624;
+  --input: #283624;
+  --ring: #6ba320;
+
+  /* Status Tokens */
+  --success: #22c55e;
+  --success-foreground: #0d2814;
+  --warning: #f59e0b;
+  --warning-foreground: #2d1803;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --info: #3b82f6;
+  --info-foreground: #ffffff;
+
+  /* Sidebar Tokens */
+  --sidebar: #0f1908;
+  --sidebar-foreground: #ecf2e6;
+  --sidebar-primary: #e3b23c;
+  --sidebar-primary-foreground: #0f1908;
+  --sidebar-accent: #1c2e10;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #1c2e10;
+  --sidebar-ring: #e3b23c;
+
+  /* Auth Brand Panel dark gradient */
+  --auth-brand-gradient: linear-gradient(165deg, #132209 0%, #0d1706 50%, #080e03 100%);
+}
+
+@theme inline {
+  --font-sans: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-gold: var(--accent-gold);
+  --color-accent-gold-text: var(--accent-gold-text);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) * 0.75);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius-xl);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  /* Rule 4: Inter font only. Weights 400, 500, 600 only. Never bolder than 600 */
+  h1, h2, h3, h4, h5, h6, b, strong, .font-bold, .font-extrabold, .font-black {
+    font-weight: 600 !important;
+  }
+}
+
+@layer utilities {
+  .bg-auth-brand {
+    background-color: var(--sidebar);
+    background-image: var(--auth-brand-gradient);
+  }
+}
